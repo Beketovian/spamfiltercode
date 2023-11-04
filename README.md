@@ -1,3 +1,7 @@
 # spamfiltercode
-Correct code for the spam filter workshop
-First run buildvocab.py then run createfreqvec.py
+
+- **Description**: Correct code for the spam filter workshop.
+- **Dependencies**: Run `pip install -r reqs.txt` to install all necessary dependencies.
+- **Execution**:
+  1. Run `buildvocab.py`
+  2. Followed by `createfreqvec.py`
