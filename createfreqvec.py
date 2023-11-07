@@ -13,16 +13,16 @@ with open("vocabulary.txt", "r") as vocab_file:
 
 # Load the dataset
 data_sample = pd.read_csv("data\emails.csv")
-X_sample = np.zeros((data_sample.shape[0], len(vocabulary)))
-y_sample = data_sample["spam"].values
+X_sample = np.zeros((data_sample.shape[0], len(vocabulary))) # Here we are creating a frequency matrix, np.zeroes initializes a matrix with all 0's
+y_sample = data_sample["spam"].values # Extract the spam column data
 
 # Convert emails to frequency vectors
-for i, email in enumerate(data_sample["text"]):
+for i, email in enumerate(data_sample["text"]): # Go over all emails in the data set, enumerate gets the index and the text
     email_words = email.split()
     for email_word in email_words:
         if email_word.lower() in vocabulary:
-            X_sample[i, vocabulary[email_word.lower()]] += 1 #increase the word's frequency in the frequency vector
-
+            X_sample[i, vocabulary[email_word.lower()]] += 1 # Increase the word's frequency in the frequency vector
+            # i is the frequency vector for the i-th email, vocab[email] gives the index in the frequency vector that corresponds to the the word
 # Split data
 X_train, X_test, y_train, y_test = train_test_split(X_sample, y_sample, test_size=0.2, random_state=42)
 '''
